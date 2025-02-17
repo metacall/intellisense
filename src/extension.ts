@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import { activateHoverProvider } from './hoverProvider';
 import { isMetacallInstalled } from './utils';
-import { runMetaCall } from './runMetacall';
+import { runMetaCall } from './runMetaCall';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed

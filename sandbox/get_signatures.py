@@ -1,13 +1,12 @@
 import metacall
-from b.ts import tsSum, tsSum2
 import json
 
-print(tsSum(2, 6))
-print(tsSum2(43, 5))
-
-a = tsSum(3, 4)
+def pyfunc1(a: int) -> int:
+    return a
 
 def metacall_inspect_from_py():
     inspection_data = metacall.metacall_inspect()
     with open('metacall_inspection.json', 'w') as f:
         json.dump(inspection_data, f, indent=2)
+
+# metacall_inspect_from_py()
