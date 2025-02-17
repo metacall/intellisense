@@ -17,8 +17,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "mc-int.helloWorld",
-        "title": "Hello World"
+        "command": "extension.runMetaCall",
+        "title": "Run MetaCall CLI"
       }
     ],
     "languages": [
