@@ -5,7 +5,9 @@ import json
 print(tsSum(2, 6))
 print(tsSum2(43, 5))
 
+
 a = tsSum(3, 4)
+b = tsSum2(4, 3)
 
 def metacall_inspect_from_py():
     inspection_data = metacall.metacall_inspect()
