@@ -50,7 +50,6 @@ function generateStub(functionName, args, returnType, pythonFile, functionType) 
 
     let stubContent = '';
     if (fs.existsSync(stubFilePath)) {
-        // If the stub file exists, read its content to append new functions
         stubContent = fs.readFileSync(stubFilePath, 'utf8');
     }
 
@@ -65,7 +64,6 @@ function generateStub(functionName, args, returnType, pythonFile, functionType) 
         functionSignature = `def ${functionName}(${pythonArgs}) ${returnType ? ('-> ' + returnType + ':') : (returnType + ':')} ...\n`;
     }
 
-    // Only add if the function signature doesn't already exist
     if (!stubContent.includes(functionSignature)) {
         stubContent += functionSignature;
         fs.writeFileSync(stubFilePath, stubContent, 'utf8');

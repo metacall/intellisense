@@ -4,13 +4,7 @@ import * as vscode from 'vscode';
 import { activateHoverProvider, updatePythonSettings } from './hoverProvider';
 import { isMetacallInstalled } from './utils';
 import { runMetaCall } from './runMetaCall';
-import * as fs from 'fs';
-import * as path from 'path';
 
-
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	console.log("mc-int is now active!");
 

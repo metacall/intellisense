@@ -1,0 +1,1106 @@
+{
+  "ext": [
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins/cli/internal",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "repl_evaluate",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": true
+          },
+          {
+            "name": "command_destroy",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "command_function",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_register_from_file",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "file",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "command_register",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "_arg1",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_initialize",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "plugin_path",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_close",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "command_initialize",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "plugin_path",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "command_parse",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "repl_register",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "regexes",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "types",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins/cli/repl",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "call",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Pointer",
+                  "id": 11
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "clear",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "eval",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "load",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "Array",
+                    "id": 9
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "debug",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "String",
+                  "id": 7
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "Array",
+                    "id": 9
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "exit",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "await",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Pointer",
+                  "id": 11
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "copyright",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "help",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "inspect",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "plugin_extension",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "plugin_load_from_path",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "Pointer",
+                    "id": 11
+                  }
+                }
+              ]
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins/cli/repl/cli_core_plugin/cli_core_plugin",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "call",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Pointer",
+                  "id": 11
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "clear",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "eval",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "load",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                },
+                {
+                  "name": "",
+                  "type": {
+                    "name": "Array",
+                    "id": 9
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "debug",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "String",
+                  "id": 7
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "Array",
+                    "id": 9
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "await",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Pointer",
+                  "id": 11
+                }
+              },
+              "args": [
+                {
+                  "name": "",
+                  "type": {
+                    "name": "String",
+                    "id": 7
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "copyright",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "help",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "inspect",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "Int",
+                  "id": 3
+                }
+              },
+              "args": []
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    }
+  ],
+  "node": [
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/bootstrap.ts",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "initialize",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "clear",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "discover",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "destroy",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "load_from_memory",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "load_from_file",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "load_from_package",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins/cli/internal/cli_repl_plugin/cli_repl_plugin.js",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "repl_close",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "repl_initialize",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "plugin_path",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_register_from_file",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "file",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_register",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "regexes",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "types",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "repl_evaluate",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": true
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    },
+    {
+      "name": "opt/homebrew/Cellar/metacall/0.8.5/lib/plugins/cli/internal/cli_cmd_plugin/cli_cmd_plugin.js",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "command_register",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "_arg1",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "command_initialize",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "plugin_path",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "command_function",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "cmd",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "command_destroy",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "command_parse",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    }
+  ],
+  "py": [
+    {
+      "name": "a.py",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "tsSum2",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "metacall_inspect_from_py",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "tsSum",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    }
+  ],
+  "ts": [
+    {
+      "name": "b.ts",
+      "scope": {
+        "name": "global_namespace",
+        "funcs": [
+          {
+            "name": "tsSum2",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "a",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                },
+                {
+                  "name": "b",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
+          {
+            "name": "tsSum",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "number",
+                  "id": 6
+                }
+              },
+              "args": [
+                {
+                  "name": "a",
+                  "type": {
+                    "name": "number",
+                    "id": 6
+                  }
+                },
+                {
+                  "name": "b",
+                  "type": {
+                    "name": "number",
+                    "id": 6
+                  }
+                }
+              ]
+            },
+            "async": false
+          }
+        ],
+        "classes": [],
+        "objects": []
+      }
+    }
+  ]
+}
