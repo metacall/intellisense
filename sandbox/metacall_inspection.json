@@ -1004,7 +1004,7 @@
             "async": false
           },
           {
-            "name": "metacall_inspect_from_py",
+            "name": "tsSum",
             "signature": {
               "ret": {
                 "type": {
@@ -1017,7 +1017,20 @@
             "async": false
           },
           {
-            "name": "tsSum",
+            "name": "analyzeNumbers",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": []
+            },
+            "async": false
+          },
+          {
+            "name": "metacall_inspect_from_py",
             "signature": {
               "ret": {
                 "type": {
@@ -1041,6 +1054,27 @@
       "scope": {
         "name": "global_namespace",
         "funcs": [
+          {
+            "name": "analyzeNumbers",
+            "signature": {
+              "ret": {
+                "type": {
+                  "name": "",
+                  "id": 20
+                }
+              },
+              "args": [
+                {
+                  "name": "numbers",
+                  "type": {
+                    "name": "",
+                    "id": 20
+                  }
+                }
+              ]
+            },
+            "async": false
+          },
           {
             "name": "tsSum2",
             "signature": {

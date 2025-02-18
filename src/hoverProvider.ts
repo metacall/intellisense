@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import metacallInspection from '../metacall_inspection.json';
+import { typeMappingForLanguage } from './utils';
 
 const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : '';
 const STUBS_DIR = path.join(workspaceFolder, '.metacall', 'stubs');
@@ -31,20 +32,33 @@ export function updatePythonSettings() {
 
 
 
-function generateStub(functionName, args, returnType, pythonFile, functionType) {
-    const fileName = path.basename(pythonFile, '.py');
-    const stubFilePath = path.join(STUBS_DIR, `${fileName}.pyi`);
+function generateStub(functionName, args, returnType, file, functionType) {
+    console.log( { functionName, args, returnType, file, functionType });
+    let fileName;
+    if (functionType === 'TypeScript') {
+      fileName = path.basename(file, '.ts');
+      console.log({ fileName });
+    }
+    const fileDir = path.join(STUBS_DIR, `${fileName}`);
+    if (!fs.existsSync(fileDir)) {
+      fs.mkdirSync(fileDir, { recursive: true });
+    }
+    const stubFilePath = path.join(fileDir, 'ts.pyi');
+    console.log({ stubFilePath });
     // if (!returnType) {
     //     returnType = "object"; // could have done None but object is more generic
     // }
 
-    const typeMapping: { [key: string]: string } = {
-        number: "int",
-        string: "str",
-        boolean: "bool",
-        object: "dict",
-        any: "object"
-    };
+    // const typeMapping: { [key: string]: string } = {
+    //     number: "int",
+    //     string: "str",
+    //     boolean: "bool",
+    //     object: "dict",
+    //     any: "Unknown",
+    //     unknown: "Unknown"
+    // };
+
+    const typeMapping = typeMappingForLanguage('PY');
 
     const toPythonType = (tsType: string): string => typeMapping[tsType] || tsType;
 
@@ -71,20 +85,23 @@ function generateStub(functionName, args, returnType, pythonFile, functionType) 
 }
 
 
-function convertToPython(language: 'TS' | 'GO' | 'CPP', functionName: string, args: any, returnType: string): string {
+function convertDefToPython(language: 'TS' | 'GO' | 'CPP', functionName: string, args: any, returnType: string): string {
     let pyString = '';
     if (language === 'TS') {
         const typeMapping: { [key: string]: string } = {
             number: "int",
             string: "str",
             boolean: "bool",
-            unknown: "object"
+            object: "dict",
+            any: "Unknown",
+            unknown: "Unknown"
         };
+
+        // const typeMapping = typeMappingForLanguage('PY');
 
         const toPythonType = (tsType: string): string => typeMapping[tsType] || tsType;
 
-        pyString = `def ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + toPythonType(arg.type.name))}`).join(", ")}) -> ${toPythonType(returnType)}`,
-            "python"
+        pyString = `def ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + toPythonType(arg.type.name))}`).join(", ")}) -> ${toPythonType(returnType)}`;
     }
     return pyString;
 }
@@ -127,7 +144,7 @@ export function activateHoverProvider(context: vscode.ExtensionContext) {
                         if (file.scope && file.scope.funcs) {
                             signatureFound = file.scope.funcs.find(func => func.name === functionName);
                             if (signatureFound) {
-                                generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'Python');
+                                // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'Python');
                                 break;
                             }
                         }
@@ -171,7 +188,7 @@ export function activateHoverProvider(context: vscode.ExtensionContext) {
                     markdownContent.appendMarkdown(`\n\n _Python equivalent_:\n\n`);
 
                     markdownContent.appendCodeblock(
-                        convertToPython('TS', functionName, args, returnType),
+                        convertDefToPython('TS', functionName, args, returnType),
                         "python"
                     );
                 } else if (functionType === FunctionType.Python) {

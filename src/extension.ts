@@ -8,12 +8,13 @@ import { runMetaCall } from './runMetaCall';
 export function activate(context: vscode.ExtensionContext) {
 	console.log("mc-int is now active!");
 
-	if (!isMetacallInstalled("metacall")) {
-		vscode.window.showWarningMessage("Metacall is not installed. Please install it to use this extension.");
-		return;
-	} else {
-		vscode.window.showInformationMessage("Metacall is installed.");
-	}
+	// if (!isMetacallInstalled("metacall")) {
+	// 	vscode.window.showWarningMessage("Metacall is not installed. Please install it to use this extension.");
+	// 	return;
+	// } else {
+	// 	vscode.window.showInformationMessage("Metacall is installed.");
+	// }
+	vscode.window.showInformationMessage("Metacall is installed.");
 	updatePythonSettings();
 
 	activateHoverProvider(context);

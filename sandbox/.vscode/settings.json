@@ -8,5 +8,6 @@
         "f:\\A\\mc-int\\sandbox\\.metacall\\stubs",
         "/Users/abhinavmishra/Coding/mc-int/sandbox/.metacall/stubs"
     ],
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.stubPath": "./.metacall/stubs",
 }
