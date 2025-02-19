@@ -16,10 +16,10 @@ export function typeMappingForPython(language: 'TS' | 'GO'): { [key: string]: st
     switch (language) {
         case 'TS':
             return {
-                number: "int",
-                string: "str",
-                boolean: "bool",
-                unknown: "object",
+                "number": "float | int",
+                "string": "str",
+                "boolean": "bool",
+                "unknown": "object",
                 "number[]": "List[int]",
                 "string[]": "List[str]",
                 "boolean[]": "List[bool]",
