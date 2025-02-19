@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// }
 	if (vscode.window.activeTextEditor?.document.languageId === "python") {
 		updatePythonSettings();
-		// activateHoverProvider(context);
+		activateHoverProvider(context);
 	}
 	pythonTsWatcher(context);
 	vscode.window.showInformationMessage("Metacall is installed.");

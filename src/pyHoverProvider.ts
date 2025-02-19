@@ -10,17 +10,15 @@ export function updatePythonSettings() {
     const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : '';
     const stubsPath = path.join(workspaceFolder, '.metacall', 'stubs');
 
-    // Remove any existing paths for stubs
-    const cleanedPaths = extraPaths.filter(p => !p.includes('.metacall/stubs'));
+    if (!extraPaths.some(p => p === stubsPath)) {
+        const cleanedPaths = extraPaths.filter(p => !p.includes('.metacall/stubs'));
+        cleanedPaths.push(stubsPath);
+        settings.update('analysis.extraPaths', cleanedPaths, vscode.ConfigurationTarget.Workspace);
+    }
 
-    // Add the absolute path for the stubs
-    cleanedPaths.push(stubsPath);
-
-    // Update the setting
-    settings.update('analysis.extraPaths', cleanedPaths, vscode.ConfigurationTarget.Workspace);
-
-    // Optionally set type checking mode if needed
-    settings.update('analysis.typeCheckingMode', 'basic', vscode.ConfigurationTarget.Workspace);
+    if (settings.get('analysis.typeCheckingMode') !== 'basic') {
+        settings.update('analysis.typeCheckingMode', 'basic', vscode.ConfigurationTarget.Workspace);
+    }
 }
 
 
@@ -93,7 +91,7 @@ export function activateHoverProvider(context: vscode.ExtensionContext) {
                         if (file.scope && file.scope.funcs) {
                             signatureFound = file.scope.funcs.find(func => func.name === functionName);
                             if (signatureFound) {
-                                generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'TypeScript');
+                                // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'TypeScript');
                                 break;
                             }
                         }
