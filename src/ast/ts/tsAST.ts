@@ -50,8 +50,6 @@ function extractFunctionInfo(filePath: string) {
             functionDetails.push({ name, params, returnType: returnTypeJson, jsDoc });
         }
     });
-
-    // Create the final JSON format
     const outputJson = {
         file: filePath,
         functions: functionDetails
@@ -59,10 +57,8 @@ function extractFunctionInfo(filePath: string) {
 
     console.log(JSON.stringify(outputJson, null, 2));
 
-    // Optional: Save JSON to a file
-    const outputPath = path.join(path.dirname(filePath), "astMetadata.json");
+    const outputPath = path.join(path.dirname(filePath), "tsASTMetadata.json");
     fs.writeFileSync(outputPath, JSON.stringify(outputJson, null, 2));
 }
 
-// Example usage
-extractFunctionInfo("myfile.ts");
+// extractFunctionInfo("myfile.ts");

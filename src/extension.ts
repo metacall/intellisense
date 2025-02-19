@@ -1,7 +1,5 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { activateHoverProvider, updatePythonSettings } from './hoverProvider';
+import { activateHoverProvider, updatePythonSettings } from './pyHoverProvider';
 import { isMetacallInstalled } from './utils';
 import { runMetaCall } from './runMetaCall';
 
@@ -14,8 +12,10 @@ export function activate(context: vscode.ExtensionContext) {
 	// } else {
 	// 	vscode.window.showInformationMessage("Metacall is installed.");
 	// }
+	if (vscode.window.activeTextEditor?.document.languageId === "python") {
+		updatePythonSettings();
+	}
 	vscode.window.showInformationMessage("Metacall is installed.");
-	updatePythonSettings();
 
 	activateHoverProvider(context);
 
