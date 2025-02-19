@@ -22,9 +22,9 @@ function analyzeNumbers(numbers) {
     const median = sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
     return { sorted, sum, average, median };
 }
-/*
-* This is the jsDoc this is
-*/
+/**
+ * Adds a number and a string that is parsed to a number
+ */
 function sum2(a, b) {
     return a + parseInt(b);
 }

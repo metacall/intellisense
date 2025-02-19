@@ -60,7 +60,7 @@
         }
       ],
       "returnType": "number",
-      "jsDoc": null
+      "jsDoc": "Adds a number and a string that is parsed to a number"
     },
     {
       "name": "sum3",

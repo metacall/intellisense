@@ -1,10 +1,18 @@
 import ts from "typescript";
 import fs from "fs";
 import path from "path";
+import * as vscode from 'vscode';
 
-export const outputPath = path.join(process.cwd(), '.metacall', 'tsast', "tsASTMetadata.json");
+const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : '';
+export const astPath = path.join(workspaceFolder, '.metacall', 'ast', 'ts');
+if (!fs.existsSync(astPath)) {
+    fs.mkdirSync(astPath, { recursive: true });
+}
+export const tsAstOutputPath = path.join(astPath, 'tsAST.json');
 
-export function extractFunctionInfo(filePath: string) {
+
+export function parseTSFunction(filePath: string) {
+    console.log({ outputPath: tsAstOutputPath })
     const program = ts.createProgram([filePath], {});
     const sourceFile = program.getSourceFile(filePath);
     if (!sourceFile) {
@@ -58,7 +66,5 @@ export function extractFunctionInfo(filePath: string) {
     };
     console.log("Parsed", filePath);
 
-    fs.writeFileSync(outputPath, JSON.stringify(outputJson, null, 2));
+    fs.writeFileSync(tsAstOutputPath, JSON.stringify(outputJson, null, 2));
 }
-
-// extractFunctionInfo("myfile.ts");

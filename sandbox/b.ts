@@ -21,9 +21,9 @@ export function analyzeNumbers(numbers: number[]): { sorted: number[]; sum: numb
   return { sorted, sum, average, median };
 }
 
-/* 
-* This is the jsDoc this is 
-*/
+/**
+ * Adds a number and a string that is parsed to a number
+ */
 export function sum2(a: number, b: string) {
   return a + parseInt(b);
 }
