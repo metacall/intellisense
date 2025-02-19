@@ -5,6 +5,9 @@ exports.tsSum2 = tsSum2;
 exports.analyzeNumbers = analyzeNumbers;
 exports.sum2 = sum2;
 exports.sum3 = sum3;
+/**
+ * This function returns the sum of two numbers
+ */
 function tsSum(a, b) {
     return a + b;
 }

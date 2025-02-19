@@ -1,3 +1,6 @@
+/**
+ * This function returns the sum of two numbers
+ */
 export function tsSum(a: number, b: number) {
   return a + b;
 }

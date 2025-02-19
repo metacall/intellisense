@@ -19,7 +19,13 @@ export function typeMappingForPython(language: 'TS' | 'GO'): { [key: string]: st
                 number: "int",
                 string: "str",
                 boolean: "bool",
-                unknown: "object"
+                unknown: "object",
+                "number[]": "List[int]",
+                "string[]": "List[str]",
+                "boolean[]": "List[bool]",
+                "Array<number>": "List[int]",
+                "Array<string>": "List[str]",
+                "Array<boolean>": "List[bool]",
             };
         case 'GO':
             return {

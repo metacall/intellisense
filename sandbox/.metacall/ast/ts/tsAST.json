@@ -14,7 +14,7 @@
         }
       ],
       "returnType": "number",
-      "jsDoc": null
+      "jsDoc": "This function returns the sum of two numbers"
     },
     {
       "name": "tsSum2",
