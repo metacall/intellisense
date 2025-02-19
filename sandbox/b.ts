@@ -1,3 +1,6 @@
+/**
+ * This function returns the sum of two numbers
+ */
 export function tsSum(a: number, b: number) {
   return a + b;
 }
@@ -19,4 +22,15 @@ export function analyzeNumbers(numbers: number[]): { sorted: number[]; sum: numb
   const median = sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 
   return { sorted, sum, average, median };
+}
+
+/**
+ * Adds a number and a string that is parsed to a number
+ */
+export function sum2(a: number, b: string) {
+  return a + parseInt(b);
+}
+
+export function sum3(a: number, b: number, c: number) {
+  return a + b + c;
 }

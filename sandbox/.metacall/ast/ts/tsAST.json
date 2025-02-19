@@ -1,0 +1,85 @@
+{
+  "file": "f:\\A\\mc-int\\sandbox\\b.ts",
+  "functions": [
+    {
+      "name": "tsSum",
+      "params": [
+        {
+          "name": "a",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "jsDoc": "This function returns the sum of two numbers"
+    },
+    {
+      "name": "tsSum2",
+      "params": [
+        {
+          "name": "a",
+          "type": "any"
+        },
+        {
+          "name": "b",
+          "type": "any"
+        }
+      ],
+      "returnType": "any",
+      "jsDoc": null
+    },
+    {
+      "name": "analyzeNumbers",
+      "params": [
+        {
+          "name": "numbers",
+          "type": "number[]"
+        }
+      ],
+      "returnType": {
+        "sorted": "number[]",
+        "sum": "number",
+        "average": "number",
+        "median": "number"
+      },
+      "jsDoc": null
+    },
+    {
+      "name": "sum2",
+      "params": [
+        {
+          "name": "a",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "type": "string"
+        }
+      ],
+      "returnType": "number",
+      "jsDoc": "Adds a number and a string that is parsed to a number"
+    },
+    {
+      "name": "sum3",
+      "params": [
+        {
+          "name": "a",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "type": "number"
+        },
+        {
+          "name": "c",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "jsDoc": null
+    }
+  ]
+}

@@ -2,14 +2,7 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import metacallInspection from '../metacall_inspection.json';
-import { typeMappingForLanguage } from './utils';
-
-const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri.fsPath : '';
-const STUBS_DIR = path.join(workspaceFolder, '.metacall', 'stubs');
-
-if (!fs.existsSync(STUBS_DIR)) {
-    fs.mkdirSync(STUBS_DIR, { recursive: true });
-}
+import { generateStub, typeMappingForPython } from './utils';
 
 export function updatePythonSettings() {
     const settings = vscode.workspace.getConfiguration('python');
@@ -28,60 +21,6 @@ export function updatePythonSettings() {
 
     // Optionally set type checking mode if needed
     settings.update('analysis.typeCheckingMode', 'basic', vscode.ConfigurationTarget.Workspace);
-}
-
-
-
-function generateStub(functionName, args, returnType, file, functionType) {
-    console.log( { functionName, args, returnType, file, functionType });
-    let fileName;
-    if (functionType === 'TypeScript') {
-      fileName = path.basename(file, '.ts');
-      console.log({ fileName });
-    }
-    const fileDir = path.join(STUBS_DIR, `${fileName}`);
-    if (!fs.existsSync(fileDir)) {
-      fs.mkdirSync(fileDir, { recursive: true });
-    }
-    const stubFilePath = path.join(fileDir, 'ts.pyi');
-    console.log({ stubFilePath });
-    // if (!returnType) {
-    //     returnType = "object"; // could have done None but object is more generic
-    // }
-
-    // const typeMapping: { [key: string]: string } = {
-    //     number: "int",
-    //     string: "str",
-    //     boolean: "bool",
-    //     object: "dict",
-    //     any: "Unknown",
-    //     unknown: "Unknown"
-    // };
-
-    const typeMapping = typeMappingForLanguage('PY');
-
-    const toPythonType = (tsType: string): string => typeMapping[tsType] || tsType;
-
-    let stubContent = '';
-    if (fs.existsSync(stubFilePath)) {
-        stubContent = fs.readFileSync(stubFilePath, 'utf8');
-    }
-
-    let functionSignature = '';
-    if (functionType === 'TypeScript') {
-        const pythonArgs = args.map(arg => `${arg.name}${arg.type.name && (': ' + toPythonType(arg.type.name))}`).join(", ");
-        const pythonReturnType = toPythonType(returnType);
-        functionSignature = `def ${functionName}(${pythonArgs}) ${pythonReturnType ? ('-> ' + pythonReturnType + ':') : (pythonReturnType + ':')} ...\n`;
-    }
-    else if (functionType === 'Python') {
-        const pythonArgs = args.map(arg => `${arg.name}${arg.type.name && (': ' + arg.type.name)}`).join(", ");
-        functionSignature = `def ${functionName}(${pythonArgs}) ${returnType ? ('-> ' + returnType + ':') : (returnType + ':')} ...\n`;
-    }
-
-    if (!stubContent.includes(functionSignature)) {
-        stubContent += functionSignature;
-        fs.writeFileSync(stubFilePath, stubContent, 'utf8');
-    }
 }
 
 
