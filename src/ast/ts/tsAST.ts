@@ -2,7 +2,9 @@ import ts from "typescript";
 import fs from "fs";
 import path from "path";
 
-function extractFunctionInfo(filePath: string) {
+export const outputPath = path.join(process.cwd(), '.metacall', 'tsast', "tsASTMetadata.json");
+
+export function extractFunctionInfo(filePath: string) {
     const program = ts.createProgram([filePath], {});
     const sourceFile = program.getSourceFile(filePath);
     if (!sourceFile) {
@@ -54,10 +56,8 @@ function extractFunctionInfo(filePath: string) {
         file: filePath,
         functions: functionDetails
     };
+    console.log("Parsed", filePath);
 
-    console.log(JSON.stringify(outputJson, null, 2));
-
-    const outputPath = path.join(path.dirname(filePath), "tsASTMetadata.json");
     fs.writeFileSync(outputPath, JSON.stringify(outputJson, null, 2));
 }
 

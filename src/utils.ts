@@ -40,7 +40,7 @@ export function generateStub(functionName, args, returnType, file, functionType)
     let fileName;
     if (functionType === 'TypeScript') {
         fileName = path.basename(file, '.ts');
-        console.log({ fileName });
+        // console.log({ fileName });
     }
     const fileDir = path.join(STUBS_DIR, `${fileName}`);
     if (!fs.existsSync(fileDir)) {

@@ -20,3 +20,14 @@ export function analyzeNumbers(numbers: number[]): { sorted: number[]; sum: numb
 
   return { sorted, sum, average, median };
 }
+
+/* 
+* This is the jsDoc this is 
+*/
+export function sum2(a: number, b: string) {
+  return a + parseInt(b);
+}
+
+export function sum3(a: number, b: number, c: number) {
+  return a + b + c;
+}

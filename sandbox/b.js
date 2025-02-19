@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.tsSum = tsSum;
 exports.tsSum2 = tsSum2;
 exports.analyzeNumbers = analyzeNumbers;
+exports.sum2 = sum2;
+exports.sum3 = sum3;
 function tsSum(a, b) {
     return a + b;
 }
@@ -19,5 +21,14 @@ function analyzeNumbers(numbers) {
     const mid = Math.floor(sorted.length / 2);
     const median = sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
     return { sorted, sum, average, median };
+}
+/*
+* This is the jsDoc this is
+*/
+function sum2(a, b) {
+    return a + parseInt(b);
+}
+function sum3(a, b, c) {
+    return a + b + c;
 }
 //# sourceMappingURL=b.js.map
