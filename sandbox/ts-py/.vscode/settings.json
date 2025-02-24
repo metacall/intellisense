@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "/Users/abhinavmishra/Coding/mc-int/sandbox/ts-py/.metacall/stubs"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.stubPath": "/Users/abhinavmishra/Coding/mc-int/sandbox/ts-py/.metacall/stubs"
+}

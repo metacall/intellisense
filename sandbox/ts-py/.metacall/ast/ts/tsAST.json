@@ -1,0 +1,31 @@
+{
+  "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/ts-py/file2.ts",
+  "functions": [
+    {
+      "name": "mytsFunction",
+      "params": [
+        {
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "jsDoc": null
+    },
+    {
+      "name": "myFunction22",
+      "params": [
+        {
+          "name": "b",
+          "type": "string"
+        },
+        {
+          "name": "c",
+          "type": "number[]"
+        }
+      ],
+      "returnType": "string",
+      "jsDoc": null
+    }
+  ]
+}
