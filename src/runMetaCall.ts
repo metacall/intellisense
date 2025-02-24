@@ -6,10 +6,10 @@ export function runMetaCall() {
     const outputChannel = vscode.window.createOutputChannel('MetaCall Output');
     outputChannel.show(true);
 
-    // Get the correct script path
+    // Unix path
     let scriptPath = path.join(__dirname, '..', 'src', 'get_signatures.py');
 
-    // Ensure Windows paths are formatted correctly
+    // For windows
     if (process.platform === 'win32') {
         scriptPath = scriptPath.replace(/\\/g, '/'); // Convert backslashes to forward slashes
     }

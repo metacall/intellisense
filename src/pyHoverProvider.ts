@@ -1,3 +1,6 @@
+// TODO: should know which language is this function imported from and then show how the function looked 
+// like in its language (its original types) and the how it looks in this certain language (for any language hover provider).
+
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';

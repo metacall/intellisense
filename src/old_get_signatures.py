@@ -1,7 +1,7 @@
 import metacall
 import json
 
-def pyfunc1(a: int) -> int:
+def testFunction(a: int) -> int:
     return a
 
 def metacall_inspect_from_py():
@@ -9,4 +9,4 @@ def metacall_inspect_from_py():
     with open('metacall_inspection.json', 'w') as f:
         json.dump(inspection_data, f, indent=2)
 
-# metacall_inspect_from_py()
+metacall_inspect_from_py() # doesnt show the function inspects correctly

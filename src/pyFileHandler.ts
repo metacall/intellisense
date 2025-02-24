@@ -25,6 +25,7 @@ export function pythonTsWatcher(context: vscode.ExtensionContext) {
         }
     });
 
+    // on file change watcher is causing a lot of lag so just using save watcher
     // context.subscriptions.push(fileWatcher, saveWatcher);
     context.subscriptions.push(saveWatcher);
 }
