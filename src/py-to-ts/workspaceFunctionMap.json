@@ -1,0 +1,14 @@
+{
+  "extract_functions": {
+    "file": "f:\\A\\mc-int\\sandbox\\goto-def\\py_ast.py",
+    "line": 5
+  },
+  "add": {
+    "file": "f:\\A\\mc-int\\sandbox\\goto-def\\math_utils.py",
+    "line": 2
+  },
+  "subtract": {
+    "file": "f:\\A\\mc-int\\sandbox\\goto-def\\math_utils.py",
+    "line": 6
+  }
+}
