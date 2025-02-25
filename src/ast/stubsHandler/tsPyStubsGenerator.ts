@@ -49,13 +49,14 @@ function generatePyiContent(jsonData: any): string {
     return output.trim();
 }
 
-export default function updateTSPyiFile(jsonPath: string, pyiFilePath: string) {
-    if (!fs.existsSync(jsonPath)) {
-        console.error("JSON file not found.");
-        return;
-    }
+// export default function updateTSPyiFile(jsonPath: string, pyiFilePath: string) {
+export default function updateTSPyiFile(jsonData: any, pyiFilePath: string) {
+    // if (!fs.existsSync(jsonPath)) {
+    //     console.error("JSON file not found.");
+    //     return;
+    // }
 
-    const jsonData = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+    // const jsonData = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
     const newContent = generatePyiContent(jsonData);
 
     if (fs.existsSync(pyiFilePath)) {

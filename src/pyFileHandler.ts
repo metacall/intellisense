@@ -37,8 +37,9 @@ export function pythonTsWatcher(context: vscode.ExtensionContext) {
 
             console.log({ tsFilePath, tsPyStubsFilePath });
             
-            parseTSFunction(tsFilePath);
-            updateTSPyiFile(tsAstOutputPath, tsPyStubsFilePath);
+            const astJson = parseTSFunction(tsFilePath);
+            // updateTSPyiFile(tsAstOutputPath, tsPyStubsFilePath);
+            updateTSPyiFile(astJson, tsPyStubsFilePath);
         }
     });
 

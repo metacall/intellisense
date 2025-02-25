@@ -13,6 +13,7 @@ export const tsAstOutputPath = path.join(astPath, 'tsAST.json');
 
 export function parseTSFunction(filePath: string) {
     console.log({ outputPath: tsAstOutputPath })
+
     const program = ts.createProgram([filePath], {});
     const sourceFile = program.getSourceFile(filePath);
     if (!sourceFile) {
@@ -64,7 +65,10 @@ export function parseTSFunction(filePath: string) {
         file: filePath,
         functions: functionDetails
     };
+
     console.log("Parsed", filePath);
 
     fs.writeFileSync(tsAstOutputPath, JSON.stringify(outputJson, null, 2));
+
+    return outputJson;
 }

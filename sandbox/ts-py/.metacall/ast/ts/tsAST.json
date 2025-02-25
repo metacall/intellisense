@@ -1,31 +1,20 @@
 {
-  "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/ts-py/file2.ts",
+  "file": "f:\\A\\mc-int\\sandbox\\ts-py\\file3.ts",
   "functions": [
     {
-      "name": "mytsFunction",
+      "name": "sum",
       "params": [
+        {
+          "name": "a",
+          "type": "number"
+        },
         {
           "name": "b",
           "type": "number"
         }
       ],
       "returnType": "number",
-      "jsDoc": null
-    },
-    {
-      "name": "myFunction22",
-      "params": [
-        {
-          "name": "b",
-          "type": "string"
-        },
-        {
-          "name": "c",
-          "type": "number[]"
-        }
-      ],
-      "returnType": "string",
-      "jsDoc": null
+      "jsDoc": "This function returns the sum of two numbers.\r\nThis is a simple function that takes two numbers and returns their sum."
     }
   ]
 }

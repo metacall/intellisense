@@ -76,72 +76,73 @@ export function activateHoverProvider(context: vscode.ExtensionContext) {
                 }
                 console.log(`Function type: ${functionType}`);
 
-                const pyFiles = metacallInspection.py;
-                const tsFiles = metacallInspection.ts;
-                let signatureFound;
-                if (functionType === FunctionType.Python) {
-                    for (const file of pyFiles) {
-                        if (file.scope && file.scope.funcs) {
-                            signatureFound = file.scope.funcs.find(func => func.name === functionName);
-                            if (signatureFound) {
-                                // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'Python');
-                                break;
-                            }
-                        }
-                    }
-                } else if (functionType === FunctionType.TypeScript) {
-                    for (const file of tsFiles) {
-                        if (file.scope && file.scope.funcs) {
-                            signatureFound = file.scope.funcs.find(func => func.name === functionName);
-                            if (signatureFound) {
-                                // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'TypeScript');
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (!signatureFound) {
-                    console.log(`Signature not found for ${functionName}`);
-                    return;
-                }
+                // const pyFiles = metacallInspection.py;
+                // const tsFiles = metacallInspection.ts;
+                // let signatureFound;
+                // if (functionType === FunctionType.Python) {
+                //     for (const file of pyFiles) {
+                //         if (file.scope && file.scope.funcs) {
+                //             signatureFound = file.scope.funcs.find(func => func.name === functionName);
+                //             if (signatureFound) {
+                //                 // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'Python');
+                //                 break;
+                //             }
+                //         }
+                //     }
+                // } else if (functionType === FunctionType.TypeScript) {
+                //     for (const file of tsFiles) {
+                //         if (file.scope && file.scope.funcs) {
+                //             signatureFound = file.scope.funcs.find(func => func.name === functionName);
+                //             if (signatureFound) {
+                //                 // generateStub(functionName, signatureFound.signature.args, signatureFound.signature.ret.type.name, file.name, 'TypeScript');
+                //                 break;
+                //             }
+                //         }
+                //     }
+                // }
+                // if (!signatureFound) {
+                //     console.log(`Signature not found for ${functionName}`);
+                //     return;
+                // }
 
-                const args = signatureFound.signature.args;
-                let returnType = signatureFound.signature.ret.type.name;
-                if (!returnType) {
-                    if (functionType === FunctionType.TypeScript) {
-                        returnType = "unknown"; // as no return type is there in the metacall_inspect json
-                    } else {
-                        returnType = "object"; // could have done None but object is more generic
-                    }
-                    console.log(`Return type not found for ${functionName}`);
-                }
+                // const args = signatureFound.signature.args;
+                // let returnType = signatureFound.signature.ret.type.name;
+                // if (!returnType) {
+                //     if (functionType === FunctionType.TypeScript) {
+                //         returnType = "unknown"; // as no return type is there in the metacall_inspect json
+                //     } else {
+                //         returnType = "object"; // could have done None but object is more generic
+                //     }
+                //     console.log(`Return type not found for ${functionName}`);
+                // }
 
                 const markdownContent = new vscode.MarkdownString();
                 markdownContent.isTrusted = true;
                 markdownContent.supportThemeIcons = true;
 
-                if (functionType === FunctionType.TypeScript) {
-                    markdownContent.appendCodeblock(
-                        `function ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + arg.type.name)}`).join(", ")}): ${returnType}`,
-                        "typescript"
-                    );
-                    markdownContent.appendMarkdown(`\n\n _Python equivalent_:\n\n`);
+                // if (functionType === FunctionType.TypeScript) {
+                //     markdownContent.appendCodeblock(
+                //         `function ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + arg.type.name)}`).join(", ")}): ${returnType}`,
+                //         "typescript"
+                //     );
+                //     markdownContent.appendMarkdown(`\n\n _Python equivalent_:\n\n`);
 
-                    markdownContent.appendCodeblock(
-                        convertDefToPython('TS', functionName, args, returnType),
-                        "python"
-                    );
-                } else if (functionType === FunctionType.Python) {
-                    markdownContent.appendCodeblock(
-                        `def ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + arg.type.name)}`).join(", ")}) -> ${returnType}`,
-                        "python"
-                    );
-                }
-                markdownContent.appendMarkdown(`\n\nThis function is recognized as a **${functionType}** function.\n\n`);
-                markdownContent.appendMarkdown('\n---\n');
-                if (!returnType) {
-                    markdownContent.appendMarkdown("No return type found so \n```python\nreturn None\n```");
-                }
+                //     markdownContent.appendCodeblock(
+                //         convertDefToPython('TS', functionName, args, returnType),
+                //         "python"
+                //     );
+                // } else if (functionType === FunctionType.Python) {
+                //     markdownContent.appendCodeblock(
+                //         `def ${functionName}(${args.map(arg => `${arg.name}${arg.type.name && (': ' + arg.type.name)}`).join(", ")}) -> ${returnType}`,
+                //         "python"
+                //     );
+                // }
+                // markdownContent.appendMarkdown(`\n\nThis function is recognized as a **${functionType}** function.\n\n`);
+                // markdownContent.appendMarkdown('\n---\n');
+                // if (!returnType) {
+                //     markdownContent.appendMarkdown("No return type found so \n```python\nreturn None\n```");
+                // }
+                markdownContent.appendMarkdown(`\n\This is a MetaCall imported function.\n\n`);
 
                 return new vscode.Hover(markdownContent);
             }
