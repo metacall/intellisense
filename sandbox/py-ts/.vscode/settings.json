@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "f:\\A\\mc-int\\sandbox\\py-ts\\.metacall\\stubs"
+    ],
+    "python.analysis.typeCheckingMode": "basic"
+}

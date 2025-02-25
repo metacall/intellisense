@@ -37,11 +37,13 @@ export function registerPyDefinitionProvider(context: vscode.ExtensionContext) {
 function findPythonDefinition(symbol: string): { file: string, line: number } | null {
     const functionMap: Record<string, { file: string, line: number }> = {
         "add": {
-            "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/goto-def/math_utils.py",
+            // "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/goto-def/math_utils.py",
+            "file": "f:/A/mc-int/sandbox/goto-def/math_utils.py",
             "line": 2
         },
         "subtract": {
-            "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/goto-def/math_utils.py",
+            // "file": "/Users/abhinavmishra/Coding/mc-int/sandbox/goto-def/math_utils.py",
+            "file": "f:/A/mc-int/sandbox/goto-def/math_utils.py",
             "line": 6
         }
     };
