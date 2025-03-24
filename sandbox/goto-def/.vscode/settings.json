@@ -1,6 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "f:\\A\\mc-int\\sandbox\\goto-def\\.metacall\\stubs"
-    ],
-    "python.analysis.typeCheckingMode": "basic"
-}

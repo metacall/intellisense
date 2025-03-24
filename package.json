@@ -1,69 +1,82 @@
 {
-  "name": "mc-int",
-  "displayName": "mc-int",
-  "description": "",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.97.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:python",
-    "onLanguage:typscript"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "extension.runMetaCall",
-        "title": "Run MetaCall CLI"
-      }
-    ],
-    "languages": [
-      {
-        "id": "javascript",
-        "extensions": [
-          ".js"
-        ]
-      },
-      {
-        "id": "python",
-        "extensions": [
-          ".py"
-        ]
-      },
-      {
-        "id": "typescript",
-        "extensions": [
-          ".ts, .tsx"
-        ]
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.97.0",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
-    "eslint": "^9.19.0",
-    "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "vscode-jsonrpc": "^8.2.1",
-    "vscode-languageclient": "^9.0.1"
-  }
+	"name": "@metacall/intellisense",
+	"displayName": "MetaCall IntelliSense",
+	"description": "Extension implementing support for multiple languages for polyglot programming with MetaCall.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.97.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:python",
+		"onLanguage:typscript"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.runMetaCall",
+				"title": "Run MetaCall CLI"
+			}
+		],
+		"languages": [
+			{
+				"id": "javascript",
+				"extensions": [
+					".js"
+				]
+			},
+			{
+				"id": "python",
+				"extensions": [
+					".py"
+				]
+			},
+			{
+				"id": "typescript",
+				"extensions": [
+					".ts, .tsx"
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "npm run lint && npm run format && tsc",
+		"watch": "tsc -watch",
+		"pretest": "npm run build",
+		"format": "prettier --log-level=warn --write .",
+		"lint": "eslint . --max-warnings=0 --fix",
+		"test": "node ./out/test/runTest.js"
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"arrowParens": "avoid"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.97.0",
+		"@typescript-eslint/eslint-plugin": "^8.22.0",
+		"@typescript-eslint/parser": "^8.22.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.19.0",
+		"eslint-config-prettier": "^10.1.1",
+		"eslint-plugin-prettier": "^5.2.4",
+		"glob": "^11.0.1",
+		"mocha": "^11.1.0",
+		"prettier": "^3.5.3",
+		"typescript": "^5.7.3"
+	},
+	"dependencies": {
+		"vscode-jsonrpc": "^8.2.1",
+		"vscode-languageclient": "^9.0.1"
+	}
 }
