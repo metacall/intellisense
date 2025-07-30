@@ -16,6 +16,16 @@ export function activate(context: vscode.ExtensionContext) {
 	// 	vscode.window.showInformationMessage("Metacall is installed.");
 	// }
 
+	// context.subscriptions.push(
+	// 	vscode.window.onDidOpenTerminal((terminal) => {
+	// 		console.log(`Terminal opened: ${terminal.name}`);
+	// 		// if (terminal.name === "metacall") {
+	// 		// 	terminal.sendText("metacall");
+	// 		// }
+	// 	})
+	// );
+
+
 	if (vscode.window.activeTextEditor?.document.languageId === "python") {
 		updatePythonSettings();
 		activateHoverProvider(context);

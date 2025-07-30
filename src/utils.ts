@@ -1,14 +1,20 @@
-import { execSync } from "child_process";
+import { execSync, exec } from "child_process";
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export function isMetacallInstalled(command: string): boolean {
+export function isMetacallInstalled(command: string, ): boolean {
     try {
-        execSync(`${command} --version`, { stdio: 'ignore' });
+        execSync(`${command}`, { stdio: 'ignore' });
         return true;
-    } catch (error) {
-        return false;
+    } catch (error: Error | any) {
+        try {
+            execSync(`which ${command}`, { stdio: 'ignore' });
+            return true;
+        } catch {
+            vscode.window.showWarningMessage(`Metacall not installed: ${error.message}`);
+            return false;
+        }
     }
 }
 
@@ -29,9 +35,9 @@ export function typeMappingForPython(language: 'TS' | 'GO'): { [key: string]: st
             };
         case 'GO':
             return {
-                int: "int",
-                string: "str",
-                bool: "bool",
+                "int" : "int",
+                "string" : "str",
+                "bool" : "bool",
                 "interface{}": "dict"
             };
         default:
